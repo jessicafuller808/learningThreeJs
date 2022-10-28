@@ -14,7 +14,7 @@
             const scene = new THREE.Scene();
 
             // first attribute is the field of view (FOV). Value is in degrees. 2nd is aspect ratio. This will almost always be width / height to maintain the ratio. Next two are the near and far clipping plane: objects further from camera than the value of far or closer than near won't be rendered.
-            const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
             // this is where the magic happens
             const renderer = new THREE.WebGLRenderer();
@@ -26,18 +26,26 @@
             document.body.appendChild( renderer.domElement );
             
             // we neeed BoxGeometry to create a cube. This is an object that contains all the vertices and faces of the cube.
-            const geometry = new THREE.BoxGeometry(1 , 1, 1);
+            const geometry = new THREE.BoxGeometry( 1 , 1, 1 );
             // materials color the cube. All materials take an object of properties which will be applied to them.
             const material = new THREE.MeshBasicMaterial({
                 color: 0x00ff00,
             });
             // last, we need a mesh. It's an object that takes a geometry, applies a matieral to it, which we can then insert to the scene and freely move around.
-            const cube = new THREE.Mesh(geometry, material);
+            const cube = new THREE.Mesh( geometry, material );
 
-            scene.add(cube);
+            scene.add( cube );
 
             // by default, calling scene.add() adds to the coordinates (0, 0, 0). This makes the cam and the object be inside each other. So, we move the camera out a bit.
             camera.position.z = 5;
+
+            // this loop causes the renderer to draw the scene every time the screen is refreshed. requestAnimationFrame has advantage over setInterval, namely it pauses when the user navigates to another browser tab - not wasting processing power and battery.
+            function animate() {
+                requestAnimationFrame( animate );
+                renderer.render( scene, camera );
+            }
+
+            animate();
 		</script>
 	</body>
 </html>
