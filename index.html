@@ -11,14 +11,21 @@
 		<script src="js/three.js"></script>
 		<script>
 			// To display anything, we need a scene, camaera, & renderer
-
             const scene = new THREE.Scene();
+
+            // first attribute is the field of view (FOV). Value is in degrees. 2nd is aspect ratio. This will almost always be width / height to maintain the ratio. Next two are the near and far clipping plane: objects further from camera than the value of far or closer than near won't be rendered.
             const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+            // this is where the magic happens
             const renderer = new THREE.WebGLRenderer();
 
+            // Sets the size of render. It's a good idea to use the width and height to fill with our app. For performance intensive apps u can do window.innerWidth/2, window.innerHeight/2 which will make the ap render at 1/4 size. You can also do half resolution with setSize(window.innerWidth/2, window.innerHeight/2, false).
             renderer.setSize( window.innerWidth, window.innerHeight );
+
+            // <canvas> element the renderer uses to display the scene.
             document.body.appendChild( renderer.domElement );
+
+            
 		</script>
 	</body>
 </html>
