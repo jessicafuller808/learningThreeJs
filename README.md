@@ -1,7 +1,7 @@
 # My Awesome Project
 This is me experimenting with the threeJs.
 
-**Link to project:** 
+**Link to project:** https://jessicafuller808.github.io/learningThreeJs/
 
 ![alt tag](link of project photo)
 
