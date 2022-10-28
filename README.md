@@ -3,7 +3,7 @@ This is me experimenting with the threeJs.
 
 **Link to project:** https://jessicafuller808.github.io/learningThreeJs/
 
-![Animated torus knot created in three.js](https://www.ibb.co/Fw1D37v)
+![alt text](https://www.ibb.co/Fw1D37v)
 
 ## How It's Made:
 
